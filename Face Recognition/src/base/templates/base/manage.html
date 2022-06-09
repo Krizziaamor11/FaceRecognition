@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-10">
+    <div class="row pt-3">
+       
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2>My Students</h2>           
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>status</th>
+                        <th>Moboile #</th>
+                        <th>Action Edit</th>
+                        <th>Action Delete</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in obj %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.studentid }}</td>
+                        <td>{{ x.firstname }}</td>
+                        <td>{{ x.lastname }}</td>
+                        <td>{{ x.ustatus }}</td>
+                        <td>{{ x.mobilenum }}</td>
+                        <td><a href="{% url 'studentedit' x.id %}"><h5><span class="badge bg-success">Edit</span></h5></a></td>
+                        <td><a href="{% url 'studentdel' x.id %}"><h5><span class="badge bg-danger">Delete</span></h5></a></td>
+                    </tr>
+                    {% endfor %}
+                   </tbody>
+                </table>
+                </div>
+            </div>
+                
+        </div>
+        <div class="col-sm-2">
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

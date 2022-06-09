@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% block content %}
+<<div class="container">
+    <div class="row pt-3">
+        <div class="col-sm-6 ">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <h1>Register</h1>
+                </div>
+                <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Username:</label>
+                {{form.username}}
+                </div>
+                <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Email:</label>
+                {{form.email}}
+                </div>
+                <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                {{form.password1}}
+                </div>
+                <div class="mb-3">
+                <label for="pwd" class="form-label">Confirm-Password:</label>
+                    {{form.password2}}
+                 </div>
+                <div class="mb-3">
+                    {% if messages %}
+                    <ul class="messages " style="padding-left: 0px !important">
+                        <div class="alert alert-danger">
+                            {% for message in messages %}
+                           {% if message.tags %} {% endif %} {{ message }}
+                            {% endfor %}
+                        </div>
+                    </ul>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="button" class="btn btn-link">No account? Sign Up Here</button>
+                </form>
+        </div>
+        <div class="col-sm-6">
+            
+        </div>
+    </div>
+</div>
+<!-- <div class="container mt-3">
+    <h2>Bordered Table</h2>
+    <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>            
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+{% endblock content %}

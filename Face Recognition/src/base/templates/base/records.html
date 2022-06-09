@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-10">
+    <div class="row pt-3">
+        
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 ">
+            <div class="card m-4">
+                <div class="card-body">
+                    <h2>Attendace Record</h2>            
+                    <table class="table table-striped" style="overflow-x: scroll;">
+                        <thead>
+                        <tr>
+                            <th>Studen First Name</th>
+                            <th>Attendace Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for x in obj2 %}
+                        <tr>
+                            <td>{{ x.student }}</td>
+                            <td>{{ x.attendancecreated }}</td>
+                        </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

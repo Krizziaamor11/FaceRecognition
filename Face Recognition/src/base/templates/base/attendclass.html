@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row pt-3 pt-5">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body ">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            
+                            
+                            <div class="mb-3 mt-5">
+                                <label ><h1>Enter Student <span class="badge bg-danger" style="display: inline-block;"> ID</span></h1></label>
+                                <div class="input-group mt-3">
+                                    
+                                    <input type="text" class="form-control" placeholder="Student ID" name="studentid">
+                                    <button type="submit" class="btn btn-primary ">Submit</button>
+                                </div>
+                            
+                            </div>
+                        </form>
+                        <div class="mb-3">
+                            {% if messages %}
+                            <ul class="messages " style="padding-left: 0px !important">
+                                <div class="alert alert-danger">
+                                    {% for message in messages %}
+                                {% if message.tags %} {% endif %} {{ message }}
+                                    {% endfor %}
+                                </div>
+
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

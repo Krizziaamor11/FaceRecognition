@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-sm-6 mt-4">
+            <div class="card">
+                <div class="card-body m-3">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                            <h1>Register</h1>
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Username:</label>
+                        {{form.username}}
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        {{form.email}}
+                        </div>
+                        <div class="mb-3">
+                        <label for="pwd" class="form-label">Password:</label>
+                        {{form.password1}}
+                        </div>
+                        <div class="mb-3">
+                        <label for="pwd" class="form-label">Confirm-Password:</label>
+                            {{form.password2}}
+                        </div>
+                        <div class="mb-3">
+                            {% if messages %}
+                            <ul class="messages " style="padding-left: 0px !important">
+                                <div class="alert alert-danger">
+                                    {% for message in messages %}
+                                {% if message.tags %} {% endif %} {{ message }}
+                                    {% endfor %}
+                                </div>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        <a href="{% url 'loginpage' %}">Already have an acoount?</a>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

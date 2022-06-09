@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container" style="height: 700px;">
+    <div class="row pt-5">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 ">
+           <div class="card">
+               <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                        <h1>Add Student</h1>
+                    </div>
+                    <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Student ID:</label>
+                    <input type="text" class="form-control" placeholder="Student ID" name="studentid">
+                    </div>
+                    <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" placeholder="First Name" name="firstname">
+                    </div>
+                    <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" placeholder="Last Name" name="lastname">
+                    </div>
+                    <div class="mb-3">
+                    <label for="pwd" class="form-label">Status:</label>
+                    <input type="text" class="form-control" placeholder="Status" name="status">
+                    </div>
+                    <div class="mb-3">
+                    <label for="pwd" class="form-label">Mobile Number:</label>
+                    <input type="text" class="form-control" placeholder="Mobile Number" name="MobileNumber">
+                    </div>
+                    <div class="mb-3">
+                        {% if messages %}
+                        <ul class="messages " style="padding-left: 0px !important">
+                            <div class="alert alert-success">
+                                {% for message in messages %}
+                            {% if message.tags %} {% endif %} {{ message }}
+                                {% endfor %}
+                            </div>
+                        </ul>
+                        {% endif %}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    
+                    </form>
+               </div>
+           </div>
+        </div>
+        <div class="col-sm-2">
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

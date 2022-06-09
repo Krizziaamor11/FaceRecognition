@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 ">
+            <div class="card m-4">
+                <div class="card-body">
+                    {% if page == 'editpage' %}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                            <h1>Update User</h1>
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Student ID:</label>
+                        <input type="text" class="form-control" placeholder="Student ID"  name="studentid" value="{{ obj.studentid }}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" placeholder="First Name" name="firstname" value="{{ obj.firstname }}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{ obj.lastname }}">
+                        </div>
+                        <div class="mb-3">
+                        <label for="pwd" class="form-label">Status:</label>
+                        <input type="text" class="form-control" placeholder="Status" name="status" value="{{ obj.ustatus }}">
+                        </div>
+                        <div class="mb-3">
+                        <label for="pwd" class="form-label">Mobile Number:</label>
+                        <input type="text" class="form-control" placeholder="Mobile Number" name="mobilenumber" value="{{ obj.mobilenum }}">
+                        </div>
+                        <div class="mb-3">
+                            <!-- {% if messages %}
+                            <ul class="messages " style="padding-left: 0px !important">
+                                <div class="alert alert-success">
+                                    {% for message in messages %}
+                                {% if message.tags %} {% endif %} {{ message }}
+                                    {% endfor %}
+                                </div>
+                            </ul>
+                            {% endif %} -->
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        
+                        </form>
+                        {% else %}
+                        <div class="pt-3">
+                            <form action="" method="POST">{% csrf_token %}
+                                <h3 class="pb-3">Are you sure want to delete {{ obj.lastname }}</h3><a href="../../">No</a>
+                                
+                                <input type="submit" name="" id="">
+                            </form>
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

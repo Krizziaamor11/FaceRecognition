@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-10">
+    <div class="row pt-3">
+        <div class="col-sm-6 mt-5    ">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                            <h1>Login</h1>
+                        </div>
+                        <div class="mb-3 mt-3">
+                        <!-- <label for="email" class="form-label">Username:</label> -->
+                        <input type="text" class="form-control" id="email" placeholder="Username" name="username">
+                        </div>
+                        <div class="mb-3">
+                        <!-- <label for="pwd" class="form-label">Password:</label> -->
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                        </div>
+                        <div class="mb-3">
+                            {% if messages %}
+                            <ul class="messages " style="padding-left: 0px !important">
+                                <div class="alert alert-danger">
+                                    {% for message in messages %}
+                                {% if message.tags %} {% endif %} {{ message }}
+                                    {% endfor %}
+                                </div>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+                        <a href="{% url 'registerpage' %}">No account? Sign Up Here</a>
+                        
+                        </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}
